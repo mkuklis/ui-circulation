@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import {
   Accordion,
@@ -21,7 +21,7 @@ export const getQuantityValue = (fine) => (
     : '-'
 );
 
-export const getFormatedValue = (fine) => parseFloat(fine || 0).toFixed(2);
+// export const getFormatedValue = (fine) => parseFloat(fine || 0).toFixed(2);
 
 const FinesSection = (props) => {
   const {
@@ -29,7 +29,9 @@ const FinesSection = (props) => {
     getCheckboxValue,
     fineSectionOpen,
   } = props;
+  const { locale } = useIntl();
   const { overdueFine, overdueRecallFine } = policy;
+  const getFormatedValue = (fine) => new Intl.NumberFormat(locale, { minimumFractionDigits: 2 }).format(fine);
 
   return (
     <div

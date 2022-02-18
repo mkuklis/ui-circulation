@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'react-final-form';
+import { FormattedNumber } from 'react-intl';
 
 import {
   Col,
@@ -9,17 +10,27 @@ import {
   TextField,
 } from '@folio/stripes/components';
 
-export const formatNumber = (value = 0) => {
-  return parseFloat(value).toFixed(2);
-};
+// export const formatNumber = (value = 0) => {
+//   return parseFloat(value).toFixed(2);
+// };
 
 const OverdueFinesSectionColumn = (props) => {
   const {
     label,
     component,
     name,
-    intl: { formatMessage },
+    intl: {
+      formatMessage,
+      locale,
+    },
   } = props;
+
+  const numberFormater = (value = 0) => {
+    console.log(value);
+    const result = new Intl.NumberFormat(locale, { minimumFractionDigits: 2 }).format(value);
+    console.log(result);
+    return result;
+  };
 
   return (
     <div>
@@ -39,7 +50,8 @@ const OverdueFinesSectionColumn = (props) => {
                 hasClearIcon={false}
                 component={TextField}
                 formatOnBlur
-                format={formatNumber}
+                format={numberFormater}
+                parse={(value) => parseFloat(value)}
               />
               :
               <Field
