@@ -54,7 +54,7 @@ describe('headers', () => {
       });
     });
 
-    it('should return header with out tenant', () => {
+    it('should return header without tenant', () => {
       expect(getHeader({
         token,
       })).toEqual({
@@ -65,7 +65,7 @@ describe('headers', () => {
       });
     });
 
-    it('should return header with out token', () => {
+    it('should return header without token', () => {
       expect(getHeader({
         tenant,
       })).toEqual({
