@@ -113,6 +113,11 @@ const getTokens = (locale) => ({
       allowedFor: allowedForAllStaffSlips,
     },
     {
+      token: 'item.effectiveLocationPrimaryServicePointName',
+      previewValue: 'Circulation Desk',
+      allowedFor: allowedForAllStaffSlips,
+    },
+    {
       token: 'item.effectiveLocationCampus',
       previewValue: 'South Campus',
       allowedFor: allowedForAllStaffSlips,
