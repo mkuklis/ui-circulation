@@ -101,6 +101,11 @@ const getTokens = (locale) => ({
       allowedFor: allowedForAllStaffSlips,
     },
     {
+      token: 'item.effectiveLocationPrimaryServicePointName',
+      previewValue: 'Circulation Desk',
+      allowedFor: allowedForAllStaffSlips,
+    },
+    {
       token: 'item.toServicePoint',
       previewValue: 'Circulation Desk - Main Library',
       allowedFor: allowedForAllStaffSlips,
